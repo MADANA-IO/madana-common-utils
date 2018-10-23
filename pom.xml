@@ -30,12 +30,6 @@
 		</dependency>
 
 	</dependencies>
-	<parent>
-		<groupId>de.madana</groupId>
-		<artifactId>madana-common</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>..</relativePath>
-	</parent>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
@@ -52,4 +46,5 @@
 		</plugins>
 
 	</build>
+	<version>unknownversion</version>
 </project>

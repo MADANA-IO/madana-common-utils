@@ -18,57 +18,65 @@
  * @author:Jean-Fabian Wenisch
  * @contact:dev@madana.io
  ******************************************************************************/
-package de.madana.common.utils.datainterface;
+package com.madana.common.utils.handler;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class MDN_DataObject.
+ * The Class KeyHandler.
  */
-public class MDN_DataObject 
+public class KeyHandler 
 {
-	
-	/** The map. */
-	private Map<String, String> map = new HashMap<String, String>();
+
+	/** The key file. */
+	File fKeyFile;
 	
 	/**
-	 * Adds the entry.
+	 * Instantiates a new m D key handler.
 	 *
-	 * @param strKey the str key
-	 * @param strValue the str value
+	 * @param file the file
 	 */
-	public void addEntry(String strKey, String strValue)
-	{
-		map.put(strKey, strValue);
+	public KeyHandler(File file) {
+		fKeyFile=file;
 	}
-	
+
 	/**
-	 * Gets the entry.
+	 * Gets the all keys.
 	 *
-	 * @param strKey the str key
-	 * @return the entry
+	 * @author Jean
+	 * @return the all keys
+	 * @since 10.05.2017
 	 */
-	public String getEntry(String strKey)
+	public static List <KeyHandler> getAllKeys()
 	{
-		return map.get(strKey);
+		List <KeyHandler> oConfigs = new ArrayList<KeyHandler>();
+		File fRootDir = new File ("./keys/");
+		File[] fConfigFiles = fRootDir.listFiles(new FilenameFilter() 
+		{
+			public boolean accept(File dir, String name) 
+			{
+				return name.toLowerCase().endsWith(".key");
+			}
+		});
+		if(fConfigFiles!=null)
+		for(int i=0; i<fConfigFiles.length;i++)
+		{
+			oConfigs.add(new KeyHandler(fConfigFiles[i]));
+		}
+		return oConfigs;
 	}
-	
+
 	/**
-	 * Gets the keys.
+	 * Gets the name.
 	 *
-	 * @return the keys
+	 * @return the name
 	 */
-	public List<String> getKeys()
+	public Object getName() 
 	{
-		List <String> oKeyList = new ArrayList<String>();
-		  for (Entry<String, String> entry : map.entrySet()) {
-		        oKeyList.add(entry.getKey());
-		    }
-		  return oKeyList;
+		return fKeyFile.getName();
 	}
 }

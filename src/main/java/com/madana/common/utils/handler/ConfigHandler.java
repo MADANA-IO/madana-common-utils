@@ -18,7 +18,7 @@
  * @author:Jean-Fabian Wenisch
  * @contact:dev@madana.io
  ******************************************************************************/
-package de.madana.common.utils.handler;
+package com.madana.common.utils.handler;
 
 import java.io.File;
 import java.io.FileInputStream;

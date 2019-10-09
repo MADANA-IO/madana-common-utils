@@ -18,7 +18,7 @@
  * @author:Jean-Fabian Wenisch
  * @contact:dev@madana.io
  ******************************************************************************/
-package de.madana.common.utils.datainterface;
+package com.madana.common.utils.datainterface;
 
 import java.io.BufferedReader;
 import java.io.IOException;

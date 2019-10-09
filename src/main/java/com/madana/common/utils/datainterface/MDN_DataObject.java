@@ -18,65 +18,57 @@
  * @author:Jean-Fabian Wenisch
  * @contact:dev@madana.io
  ******************************************************************************/
-package de.madana.common.utils.handler;
+package com.madana.common.utils.datainterface;
 
-import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class KeyHandler.
+ * The Class MDN_DataObject.
  */
-public class KeyHandler 
+public class MDN_DataObject 
 {
-
-	/** The key file. */
-	File fKeyFile;
+	
+	/** The map. */
+	private Map<String, String> map = new HashMap<String, String>();
 	
 	/**
-	 * Instantiates a new m D key handler.
+	 * Adds the entry.
 	 *
-	 * @param file the file
+	 * @param strKey the str key
+	 * @param strValue the str value
 	 */
-	public KeyHandler(File file) {
-		fKeyFile=file;
-	}
-
-	/**
-	 * Gets the all keys.
-	 *
-	 * @author Jean
-	 * @return the all keys
-	 * @since 10.05.2017
-	 */
-	public static List <KeyHandler> getAllKeys()
+	public void addEntry(String strKey, String strValue)
 	{
-		List <KeyHandler> oConfigs = new ArrayList<KeyHandler>();
-		File fRootDir = new File ("./keys/");
-		File[] fConfigFiles = fRootDir.listFiles(new FilenameFilter() 
-		{
-			public boolean accept(File dir, String name) 
-			{
-				return name.toLowerCase().endsWith(".key");
-			}
-		});
-		if(fConfigFiles!=null)
-		for(int i=0; i<fConfigFiles.length;i++)
-		{
-			oConfigs.add(new KeyHandler(fConfigFiles[i]));
-		}
-		return oConfigs;
+		map.put(strKey, strValue);
 	}
-
+	
 	/**
-	 * Gets the name.
+	 * Gets the entry.
 	 *
-	 * @return the name
+	 * @param strKey the str key
+	 * @return the entry
 	 */
-	public Object getName() 
+	public String getEntry(String strKey)
 	{
-		return fKeyFile.getName();
+		return map.get(strKey);
+	}
+	
+	/**
+	 * Gets the keys.
+	 *
+	 * @return the keys
+	 */
+	public List<String> getKeys()
+	{
+		List <String> oKeyList = new ArrayList<String>();
+		  for (Entry<String, String> entry : map.entrySet()) {
+		        oKeyList.add(entry.getKey());
+		    }
+		  return oKeyList;
 	}
 }

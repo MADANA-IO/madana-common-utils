@@ -60,7 +60,7 @@
 		</plugins>
 
 	</build>
-	<version>${bamboo.mcutils.version}</version>
+	<version>0.1.17-master.1</version>
 	<distributionManagement>
 		<repository>
 			<id>github</id>

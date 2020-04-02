@@ -28,6 +28,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 
 // TODO: Auto-generated Javadoc
@@ -103,7 +105,27 @@ public class FileHandler
 		fos.flush();
 		fos.close();
 	}
-    
+	public static void writeToFile( String path ,InputStream inputStream) {
+
+		try {
+			File file = new File( path);
+			file.getParentFile().mkdirs();
+			OutputStream out = new FileOutputStream(new File(path));
+			int read = 0;
+			byte[] bytes = new byte[1024];
+
+			out = new FileOutputStream(new File(path));
+			while ((read = inputStream.read(bytes)) != -1) {
+				out.write(bytes, 0, read);
+			}
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+	}
     /**
      * Write to file.
      *

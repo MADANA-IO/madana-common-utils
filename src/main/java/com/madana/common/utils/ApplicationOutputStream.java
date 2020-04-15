@@ -12,7 +12,7 @@ public class ApplicationOutputStream extends PrintStream {
         this.applicationName=applicationName;
     }
 
-    public ApplicationOutputStream(String applicationName, PrintStream out, boolean b) 
+    public ApplicationOutputStream(String applicationName, OutputStream out, boolean b) 
     {
         super(out,b);
         this.applicationName=applicationName;

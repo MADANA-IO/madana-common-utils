@@ -9,6 +9,8 @@ public class IPUtils {
 	public static String getExternalIP() throws IOException
 	{
 		String ip =  System.getenv("HOST_IP");
+		if(ip==null)
+			ip="";
 		if(ip.length()<4)
 		{
 			BufferedReader in = null;

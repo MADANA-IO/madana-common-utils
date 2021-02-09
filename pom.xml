@@ -45,6 +45,11 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.5</version>
 		</dependency>
+		<dependency>
+			<groupId>com.madana.common</groupId>
+			<artifactId>madana-common-restclient</artifactId>
+			<version>0.1.42</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-exec -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>

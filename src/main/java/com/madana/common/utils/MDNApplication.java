@@ -1,4 +1,4 @@
-package com.madana.core.utils;
+package com.madana.common.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 import org.apache.commons.net.util.Base64;
 import org.bouncycastle.util.io.TeeOutputStream;
 
-import com.madana.common.utils.ApplicationOutputStream;
+import com.madana.common.restclient.RequestRestClient;
 import com.madana.common.utils.handler.ConfigHandler;
 
 public abstract class MDNApplication 

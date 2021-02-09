@@ -14,6 +14,7 @@ import java.util.concurrent.Executors;
 import org.apache.commons.net.util.Base64;
 import org.bouncycastle.util.io.TeeOutputStream;
 
+import com.madana.common.datastructures.SettingsWrapper;
 import com.madana.common.restclient.RequestRestClient;
 import com.madana.common.utils.handler.ConfigHandler;
 
